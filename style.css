@@ -1,21 +1,26 @@
 body {
     margin: 0;
-    height: 100vh;
     background: linear-gradient(to right, #1e3c72, #6dd5ed, #2a5298);
-    padding-top: 0;
-    position: relative;
+    padding-top: 15px;   /* ← ここだけでOK */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
 }
+
 
 /*画像ギャラリー*/
 .image-gallery {
-    max-width: 2100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 30px 40px 0;
     position: relative;
+}
+
+.main-outside-title {
+    color: #fff;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 /*画像ボックス*/
@@ -28,8 +33,48 @@ body {
     background-color: #fff;  /* ← これがないと白枠は消える */
 }
 
+/*「AIビジネスとは？」の画像上に文字を重ねる */
+.caption-overlay {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 2rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
+.caption-overlay-2 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 1700px;            /* 上からの距離 */
+  left: 290px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.9rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
+.caption-overlay-3 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 2460px;            /* 上からの距離 */
+  left: 290px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.9rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
 .image-box:first-of-type {
-    margin-top: 80px;  /* 画面上から少し空ける */
+    margin-top: 5px;  /* 画面上から少し空ける */
+    margin-bottom: 200px;
 }
 
 
@@ -53,7 +98,8 @@ body {
     width: 100%;      /* 親要素幅に合わせる */
     max-width: 100%;  /* 親幅以上にならない */
     height: auto;     /* 縦横比を維持 */
-    border: 3px solid #cccccc;
+    border: none;
+    border-radius: 20px;
 }
 
 .image-box main {
@@ -62,7 +108,8 @@ body {
     align-items: center;
     background-color: #fff;
     padding:  40px;
-    margin-top: 200px;
+    margin-top: 300px;
+    margin-bottom: 120px;
 }
 
 .image-wide {
@@ -75,7 +122,7 @@ body {
 /*メイン画像オーバレイ*/
 .overlay-text {
     position: absolute;
-    top: 50px;
+    top: 180px;
     left: 37%;
     transform: translateX(-50%);
     color: #ff0;
@@ -150,8 +197,7 @@ body {
     font-size: 3rem;
     font-weight:bold ;
     text-align: left;
-    margin-bottom: 20px;
-    margin-left: 250px;
+    margin: 80px 0 20px 190px;
 }
 
 /*テーブル全体*/
@@ -256,7 +302,7 @@ body {
 .notice .emphasis {
     display: inline-block;
     position: relative;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .notice .emphasis::after {
@@ -308,7 +354,7 @@ body {
 .email {
     font-size: 40px;
     text-align: left;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 40px auto;
     line-height: 1.3;
 }
