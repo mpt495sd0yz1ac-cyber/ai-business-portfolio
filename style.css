@@ -200,6 +200,23 @@ body {
     margin: 80px 0 20px 190px;
 }
 
+.steps-overlay {
+    position: absolute;
+    top: 2510px;
+    left: 290px;
+    color: #ffffff;
+    font-size: 2.7rem;
+    background-color: rgba(50, 50, 50, 0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    list-style-position: inside;
+}
+
+.steps-overlay li {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
 /*テーブル全体*/
 .seminar-info {
     width: 100%;
@@ -354,7 +371,7 @@ body {
 .email {
     font-size: 40px;
     text-align: left;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 40px auto;
     line-height: 1.3;
 }
