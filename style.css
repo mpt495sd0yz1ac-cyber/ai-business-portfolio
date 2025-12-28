@@ -7,7 +7,6 @@ body {
     align-items: center;
 }
 
-
 /*画像ギャラリー*/
 .image-gallery {
     max-width: 1200px;
@@ -20,11 +19,12 @@ body {
     color: #fff;
     font-size: 80px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 /*画像ボックス*/
 .image-box {
+    position: relative;
     width: 100%;
     max-width: 500px;        /* 画像と白枠の最大幅を統一 */
     padding: 20px;           /* 白枠の余白 */
@@ -49,8 +49,8 @@ body {
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-2 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 1700px;            /* 上からの距離 */
-  left: 290px;           /* 左からの距離 */
+  top: 40px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
   color: #ffffff;       /* 白文字 */
   font-size: 1.9rem;      /* 文字サイズ */
   font-weight: bold;
@@ -62,8 +62,8 @@ body {
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-3 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 2460px;            /* 上からの距離 */
-  left: 290px;           /* 左からの距離 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
   color: #ffffff;       /* 白文字 */
   font-size: 1.9rem;      /* 文字サイズ */
   font-weight: bold;
@@ -73,10 +73,9 @@ body {
 }
 
 .image-box:first-of-type {
-    margin-top: 5px;  /* 画面上から少し空ける */
+    margin-top: 80px;
     margin-bottom: 200px;
 }
-
 
 /*画像1→今さらだけどAIとは？を広げる*/
 .image-box:nth-of-type(2) {
@@ -108,7 +107,7 @@ body {
     align-items: center;
     background-color: #fff;
     padding:  40px;
-    margin-top: 300px;
+    margin-top: 500px !important;
     margin-bottom: 120px;
 }
 
@@ -202,8 +201,8 @@ body {
 
 .steps-overlay {
     position: absolute;
-    top: 2510px;
-    left: 290px;
+    top: 100px;
+    left: 30px;
     color: #ffffff;
     font-size: 2.7rem;
     background-color: rgba(50, 50, 50, 0.5);
