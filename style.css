@@ -102,6 +102,7 @@ body {
 }
 
 .image-box main {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,8 +122,8 @@ body {
 /*メイン画像オーバレイ*/
 .overlay-text {
     position: absolute;
-    top: 180px;
-    left: 37%;
+    top: -30px;
+    left: 200px;
     transform: translateX(-50%);
     color: #ff0;
     font-size: 60px;
