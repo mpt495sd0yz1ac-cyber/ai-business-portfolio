@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: linear-gradient(to right, #1e3c72, #6dd5ed, #2a5298);
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
     padding-top: 15px;   /* ← ここだけでOK */
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ body {
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-2 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 40px;            /* 上からの距離 */
+  top: 20px;            /* 上からの距離 */
   left: 30px;           /* 左からの距離 */
   color: #ffffff;       /* 白文字 */
   font-size: 1.9rem;      /* 文字サイズ */
@@ -62,7 +62,7 @@ body {
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-3 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 20px;            /* 上からの距離 */
+  top: 10px;            /* 上からの距離 */
   left: 30px;           /* 左からの距離 */
   color: #ffffff;       /* 白文字 */
   font-size: 1.9rem;      /* 文字サイズ */
@@ -123,8 +123,8 @@ body {
 .overlay-text {
     position: absolute;
     top: -30px;
-    left: 200px;
-    transform: translateX(-50%);
+    left: 430px;
+    transform: translateX(-40%);
     color: #ff0;
     font-size: 60px;
     font-weight: bold;
@@ -202,7 +202,7 @@ body {
 
 .steps-overlay {
     position: absolute;
-    top: 100px;
+    top: 200px;
     left: 30px;
     color: #ffffff;
     font-size: 2.7rem;
