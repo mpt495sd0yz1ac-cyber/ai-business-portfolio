@@ -131,6 +131,72 @@ body {
     z-index: 10;
 }
 
+/*縦線のスクロール*/
+.scrolldown {
+    /*描画位置*/
+  position: absolute;
+  bottom: 35px;          /* ← 重要：画像の内側 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  opacity: 0.8;
+  pointer-events: none; /* クリック邪魔しない */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+    /*描画位置*/
+    position: static;
+    left: 50%;
+    top: -40%;
+    transform: translateX(-50%);
+    /*テキストの形状*/
+    color: #ff0;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+/*線の描写*/
+.scrolldown::after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    top: 0;
+    /*線の形状*/
+    width: 3px;
+    height: 30px;
+    background: #ff0;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+    animation: pathmove 1.4s ease-in-out infinite;
+    opacity: 0;
+    margin-top: 20px;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove {
+    0%{
+        height: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    30%{
+        height: 30px;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        top: 50px;
+        opacity: 0;
+    }
+}
+
 /*画像コンテナと左右BOX*/
 .image-container {
     display: flex;
@@ -456,6 +522,31 @@ body {
     font-weight: bold;
 }
 
+/* PCではタイトル下BOXを消す */
+@media screen and (min-width: 769px) {
+  .side-box-wrapper,
+   .mobile-only{
+    display: none !important;
+  }
+  .image-container .side-box {
+    display: flex;
+  }
+  .pc-only {
+    display: flex !important;
+  }
+  .side-box.left-box.pc-only,
+  .side-box.right-box.pc-only {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+   /* 共通PC用 */
+  .pc-only {
+    display: flex !important;
+  }
+}
+
 /*スマホ・タブレット対応*/
 @media screen and (max-width:768px) {
 body {
@@ -583,11 +674,11 @@ body {
 /*メイン画像オーバレイ*/
 .overlay-text {
     position: absolute;
-    top: -10px;
-    left: 430px;
-    transform: translateX(-40%);
+    top: -30px;
+    left: 340px;
+    transform: translateX(-20%);
     color: #ff0;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     z-index: 10;
 }
@@ -603,10 +694,10 @@ body {
 
 /*左右のBOX*/
 .side-box {
-    position: absolute;
+    position: static;
     width: 250px;
     height: 100px;
-    padding: 20px;
+    padding: 0;
     background-color: #0b1f3a;
     border: 5px solid #cccccc;
     border-radius: 20px;
@@ -618,6 +709,32 @@ body {
 .side-box p {
     color: #ffd700;
 }
+
+/* タイトル直下の左右BOX */
+  .side-box-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 30px;
+  }
+
+  .side-box-wrapper { display: flex; } 
+  .image-container .side-box { display: none; }
+  
+  .mobile-only { display: flex; }
+  .pc-only { display: none; }
+
+  /* スマホでは画像内の左右BOXを使わない */
+  .image-container .side-box {
+    display: none;
+  }
+  
+  .side-box.right-box.pc-only {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 
 /*左BOX*/
 .left-box {
@@ -655,10 +772,10 @@ body {
 /*キャプション*/
 .caption-outside {
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight:bold ;
-    text-align: left;
-    margin: 80px 0 20px 190px;
+    text-align: center;
+    margin: 80px 0 20px 0;
 }
 
 .steps-overlay {
@@ -680,14 +797,14 @@ body {
 
 /*テーブル全体*/
 .seminar-info {
-    width: 100%;
+    width: 95%;
     border-collapse: collapse;
     border: 7px solid #ffffff;
     display: table;
     margin: 50px auto;
     table-layout: auto;
-    min-width: 1200px;
-    height: 600px;
+    min-width: unset;
+    height: 400px;
 }
 
 .seminar-info th,
@@ -726,7 +843,7 @@ body {
 /*左列に対応する右列*/
 .seminar-info td:nth-child(2) {
     padding-left:40px ;
-    font-size: 40px;
+    font-size: 20px;
     background-color: #002766;
     color: #fff;
     text-align: center;
@@ -738,7 +855,7 @@ body {
     background-color: #003a8f;
     text-align: center;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 40px;
     border-top: 7px solid #ffffff;
     border-bottom: 7px solid #ffffff;
 }
@@ -750,9 +867,9 @@ body {
 
 /*左列(ヘッダー)だけ固定幅にする*/
 .seminar-info th:first-child {
-    width: 250px !important;
+    width: 150px !important;
     padding: 20px 10px;
-    font-size: 45px;
+    font-size: 25px;
     background-color: #1a1a2e;
     color: #fff;
     text-align: center;
@@ -774,13 +891,14 @@ body {
     display: block;
     margin-top: 50px;
     margin-bottom: 20px ;
-    font-size: 45px;
+    font-size: 28px;
 }
 
 .notice .emphasis {
     display: inline-block;
     position: relative;
-    font-size: 50px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .notice .emphasis::after {
@@ -789,7 +907,7 @@ body {
     left: 0;
     bottom: 15%;
     width: 100%;
-    height: 15px;
+    height: 7px;
     background: #fff000;
     z-index: -1;
 }
@@ -830,7 +948,7 @@ body {
 /* 共通ラッパー */
 .name,
 .email {
-    font-size: 40px;
+    font-size: 35px;
     text-align: left;
     max-width: 900px;
     margin: 40px auto;
