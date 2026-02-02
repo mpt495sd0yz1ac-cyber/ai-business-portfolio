@@ -17,7 +17,7 @@ body {
 
 .main-outside-title {
     color: #fff;
-    font-size: 80px;
+    font-size: 65px;
     text-align: center;
     margin-bottom: 0;
 }
@@ -159,6 +159,7 @@ body {
     color: #ff0;
     font-size: 1.5rem;
     letter-spacing: 0.05em;
+    opacity: 0.85; 
 }
 
 /*線の描写*/
@@ -569,7 +570,7 @@ body {
 
 .main-outside-title {
     color: #fff;
-    font-size: 60px;
+    font-size: 33px;
     text-align: center;
     margin-bottom: 0;
 }
@@ -976,17 +977,16 @@ body {
     display: block;
     background: linear-gradient(90deg, #fcd34d, #fbbf24);
     color: #1e3c72;
-    font-size: 32px;
     text-align: center;
     border-radius: 20px;
-    padding: 50px 50px;
+    padding: 30px 30px;
     cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     margin: 0 auto;
     box-shadow: 0 6px 15px rgba(0, 0, 0.25);
     border: none;
-    line-height: 50px;
-    width: 1100px;
+    line-height: 30px;
+    width: 95%;
     margin-bottom: 100px;
 }
 
@@ -1002,19 +1002,15 @@ body {
 
 .button-sub {
     display: block;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
 }
 
 .button-main {
     display: block;
-    font-size: 95px;
+    font-size: 70px;
     font-weight: bold;
 }
 
-
 }
-
-
-
