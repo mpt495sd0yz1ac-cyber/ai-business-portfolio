@@ -127,6 +127,7 @@ body {
     padding:  40px;
     margin-top: 500px !important;
     margin-bottom: 120px;
+    width: 100%;
 }
 
 .image-wide {
@@ -161,8 +162,8 @@ body {
 .scrolldown {
     /*描画位置*/
   position: absolute;
-  bottom: 35px;          /* ← 重要：画像の内側 */
-  left: 50%;
+  bottom: 15px;          /* ← 重要：画像の内側 */
+  left: 53%;
   transform: translateX(-50%);
   text-align: center;
   color: #000;
@@ -173,6 +174,7 @@ body {
   flex-direction: column;
   gap: 8px;
   z-index: 10;
+  width: 40px; 
 }
 
 /*Scrollテキストの描写*/
@@ -187,6 +189,7 @@ body {
     font-size: 1.5rem;
     letter-spacing: 0.05em;
     opacity: 0.85; 
+    text-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
 /*線の描写*/
@@ -195,6 +198,7 @@ body {
     /*描画位置*/
     position: absolute;
     top: 0;
+    left: 40%;
     /*線の形状*/
     width: 3px;
     height: 30px;
@@ -202,7 +206,7 @@ body {
     /*線の動き1.4秒かけて動く。永遠にループ*/
     animation: pathmove 1.4s ease-in-out infinite;
     opacity: 0;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 /*高さ・位置・透過が変化して線が上から下に動く*/
@@ -718,7 +722,7 @@ body {
 .scrolldown {
     /*描画位置*/
   position: absolute;
-  bottom: 12%;          /* ← 重要：画像の内側 */
+  bottom: 18%;          /* ← 重要：画像の内側 */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -743,6 +747,7 @@ body {
     font-size: 1.5rem;
     letter-spacing: 0.05em;
     opacity: 0.85; 
+    text-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
 /*線の描写*/
@@ -758,7 +763,7 @@ body {
     /*線の動き1.4秒かけて動く。永遠にループ*/
     animation: pathmove 1.4s ease-in-out infinite;
     opacity: 0;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 /*高さ・位置・透過が変化して線が上から下に動く*/
