@@ -22,189 +22,29 @@ body {
     margin-bottom: 0;
 }
 
-/*画像ボックス*/
-.image-box {
-    position: relative;
-    width: 100%;
-    max-width: 500px;        /* 画像と白枠の最大幅を統一 */
-    padding: 20px;           /* 白枠の余白 */
-    margin: 40px auto;       /* 上下の間隔 */
-    border-radius: 20px;
-    background-color: #fff;  /* ← これがないと白枠は消える */
-}
-
-/*「AIビジネスとは？」の画像上に文字を重ねる */
-.caption-overlay {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 20px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 2rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-/*「今さらだけどAIとは？」の画像上に文字を重ねる */
-.caption-overlay-2 {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 20px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 1.9rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-/*「今さらだけどAIとは？」の画像上に文字を重ねる */
-.caption-overlay-3 {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 10px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 1.9rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-.image-box:first-of-type {
-    margin-top: 80px;
-    margin-bottom: 200px;
-}
-
-/*画像1→今さらだけどAIとは？を広げる*/
-.image-box:nth-of-type(2) {
-    margin-bottom: 200px;
-}
-
-/*画像2→どうやって使えばいいの？を広げる*/
-.image-box:nth-of-type(3) {
-    margin-bottom: 200px;
-}
-
-/*画像3→どうやって使えばいいの？を広げる*/
-.image-box:nth-of-type(4) {
-    margin-bottom: 300px;
-}
-
-.image-box img {
-    display: block;
-    width: 100%;      /* 親要素幅に合わせる */
-    max-width: 100%;  /* 親幅以上にならない */
-    height: auto;     /* 縦横比を維持 */
-    border: none;
-    border-radius: 20px;
-}
-
-.image-box main {
-    position: relative;
+/* PCではタイトル下BOXを消す */
+@media screen and (min-width: 769px) {
+  .side-box-wrapper,
+   .mobile-only{
+    display: none !important;
+  }
+  .image-container .side-box {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding:  40px;
-    margin-top: 500px !important;
-    margin-bottom: 120px;
-}
-
-.image-wide {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-/*メイン画像オーバレイ*/
-.overlay-text {
-    position: absolute;
-    top: -30px;
-    left: 430px;
-    transform: translateX(-40%);
-    color: #ff0;
-    font-size: 60px;
-    font-weight: bold;
-    z-index: 10;
-}
-
-/*縦線のスクロール*/
-.scrolldown {
-    /*描画位置*/
-  position: absolute;
-  bottom: 35px;          /* ← 重要：画像の内側 */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #000;
-  font-size: 20px;
-  opacity: 0.8;
-  pointer-events: none; /* クリック邪魔しない */
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/*Scrollテキストの描写*/
-.scrolldown span {
-    /*描画位置*/
-    position: static;
-    left: 50%;
-    top: -40%;
-    transform: translateX(-50%);
-    /*テキストの形状*/
-    color: #ff0;
-    font-size: 1.5rem;
-    letter-spacing: 0.05em;
-    opacity: 0.85; 
-}
-
-/*線の描写*/
-.scrolldown::after {
-    content: "";
-    /*描画位置*/
-    position: absolute;
-    top: 0;
-    /*線の形状*/
-    width: 3px;
-    height: 30px;
-    background: #ff0;
-    /*線の動き1.4秒かけて動く。永遠にループ*/
-    animation: pathmove 1.4s ease-in-out infinite;
-    opacity: 0;
-    margin-top: 20px;
-}
-
-/*高さ・位置・透過が変化して線が上から下に動く*/
-@keyframes pathmove {
-    0%{
-        height: 0;
-        top: 0;
-        opacity: 0;
-    }
-
-    30%{
-        height: 30px;
-        opacity: 1;
-    }
-
-    100%{
-        height: 0;
-        top: 50px;
-        opacity: 0;
-    }
-}
-
-/*画像コンテナと左右BOX*/
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
+  }
+  .pc-only {
+    display: flex !important;
+  }
+  .side-box.left-box.pc-only,
+  .side-box.right-box.pc-only {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+   /* 共通PC用 */
+  .pc-only {
+    display: flex !important;
+  }
 }
 
 /*左右のBOX*/
@@ -258,6 +98,139 @@ body {
     margin: 0 ;
 }
 
+/*画像ボックス*/
+.image-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;        /* 画像と白枠の最大幅を統一 */
+    padding: 20px;           /* 白枠の余白 */
+    margin: 40px auto;       /* 上下の間隔 */
+    border-radius: 20px;
+    background-color: #fff;  /* ← これがないと白枠は消える */
+}
+
+.image-box img {
+    display: block;
+    width: 100%;      /* 親要素幅に合わせる */
+    max-width: 100%;  /* 親幅以上にならない */
+    height: auto;     /* 縦横比を維持 */
+    border: none;
+    border-radius: 20px;
+}
+
+.image-box main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding:  40px;
+    margin-top: 500px !important;
+    margin-bottom: 120px;
+}
+
+.image-wide {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/*画像コンテナと左右BOX*/
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/*メイン画像オーバレイ*/
+.overlay-text {
+    position: absolute;
+    top: -30px;
+    left: 430px;
+    transform: translateX(-40%);
+    color: #ff0;
+    font-size: 60px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/*縦線のスクロール*/
+.scrolldown {
+    /*描画位置*/
+  position: absolute;
+  bottom: 35px;          /* ← 重要：画像の内側 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  opacity: 0.8;
+  pointer-events: none; /* クリック邪魔しない */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+    /*描画位置*/
+    position: static;
+    left: 50%;
+    top: -40%;
+    transform: translateX(-50%);
+    /*テキストの形状*/
+    color: #ff0;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0.85; 
+}
+
+/*線の描写*/
+.scrolldown::after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    top: 0;
+    /*線の形状*/
+    width: 3px;
+    height: 30px;
+    background: #ff0;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+    animation: pathmove 1.4s ease-in-out infinite;
+    opacity: 0;
+    margin-top: 20px;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove {
+    0%{
+        height: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    30%{
+        height: 30px;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        top: 50px;
+        opacity: 0;
+    }
+}
+
+/*メイン画像*/
+.image-box:first-of-type {
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
 /*キャプション*/
 .caption-outside {
     color: #ffffff;
@@ -265,6 +238,60 @@ body {
     font-weight:bold ;
     text-align: center;
     margin: 80px 0 20px 0;
+}
+
+/*「AIビジネスとは？」の画像上に文字を重ねる */
+.caption-overlay {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 2rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像1→今さらだけどAIとは？を広げる*/
+.image-box:nth-of-type(2) {
+    margin-bottom: 200px;
+}
+
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
+.caption-overlay-2 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.9rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像2→どうやって使えばいいの？を広げる*/
+.image-box:nth-of-type(3) {
+    margin-bottom: 200px;
+}
+
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
+.caption-overlay-3 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 10px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.9rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像3→どうやって使えばいいの？を広げる*/
+.image-box:nth-of-type(4) {
+    margin-bottom: 300px;
 }
 
 .steps-overlay {
@@ -523,30 +550,6 @@ body {
     font-weight: bold;
 }
 
-/* PCではタイトル下BOXを消す */
-@media screen and (min-width: 769px) {
-  .side-box-wrapper,
-   .mobile-only{
-    display: none !important;
-  }
-  .image-container .side-box {
-    display: flex;
-  }
-  .pc-only {
-    display: flex !important;
-  }
-  .side-box.left-box.pc-only,
-  .side-box.right-box.pc-only {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-   /* 共通PC用 */
-  .pc-only {
-    display: flex !important;
-  }
-}
 
 /*スマホ・タブレット対応*/
 @media screen and (max-width:768px) {
@@ -573,124 +576,6 @@ body {
     font-size: 33px;
     text-align: center;
     margin-bottom: 0;
-}
-
-/*画像ボックス*/
-.image-box {
-    position: relative;
-    width: 100%;
-    max-width: 500px;        /* 画像と白枠の最大幅を統一 */
-    padding: 20px;           /* 白枠の余白 */
-    margin: 40px auto;       /* 上下の間隔 */
-    border-radius: 20px;
-    background-color: #fff;  /* ← これがないと白枠は消える */
-}
-
-/*「AIビジネスとは何？」の画像上に文字を重ねる */
-.caption-overlay {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 20px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 1.5rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-/*「今さらだけど…AIって結局何？」の画像上に文字を重ねる */
-.caption-overlay-2 {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 20px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 1.5rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-/*「今さらだけどAIとは？」の画像上に文字を重ねる */
-.caption-overlay-3 {
-  position: absolute;   /* 親要素（figure）内で絶対位置 */
-  top: 10px;            /* 上からの距離 */
-  left: 30px;           /* 左からの距離 */
-  color: #ffffff;       /* 白文字 */
-  font-size: 1.5rem;      /* 文字サイズ */
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
-  padding: 5px 10px;    /* 文字周りの余白 */
-  border-radius: 5px;   /* 角丸（任意） */
-}
-
-.image-box:first-of-type {
-    margin-top: 80px;
-    margin-bottom: 200px;
-}
-
-/*画像1→今さらだけどAIとは？を広げる*/
-.image-box:nth-of-type(2) {
-    margin-bottom: 200px;
-}
-
-/*画像2→どうやって使えばいいの？を広げる*/
-.image-box:nth-of-type(3) {
-    margin-bottom: 200px;
-}
-
-/*画像3→どうやって使えばいいの？を広げる*/
-.image-box:nth-of-type(4) {
-    margin-bottom: 300px;
-}
-
-.image-box img {
-    display: block;
-    width: 100%;      /* 親要素幅に合わせる */
-    max-width: 100%;  /* 親幅以上にならない */
-    height: auto;     /* 縦横比を維持 */
-    border: none;
-    border-radius: 20px;
-}
-
-.image-box main {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding:  40px;
-    margin-top: 500px !important;
-    margin-bottom: 120px;
-}
-
-.image-wide {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-/*メイン画像オーバレイ*/
-.overlay-text {
-    position: absolute;
-    top: -30px;
-    left: 340px;
-    transform: translateX(-20%);
-    color: #ff0;
-    font-size: 50px;
-    font-weight: bold;
-    z-index: 10;
-}
-
-/*画像コンテナと左右BOX*/
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
 }
 
 /*左右のBOX*/
@@ -770,6 +655,138 @@ body {
     margin: 0 ;
 }
 
+/*画像ボックス*/
+.image-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;        /* 画像と白枠の最大幅を統一 */
+    padding: 20px;           /* 白枠の余白 */
+    margin: 40px auto;       /* 上下の間隔 */
+    border-radius: 20px;
+    background-color: #fff;  /* ← これがないと白枠は消える */
+}
+
+.image-box img {
+    display: block;
+    width: 100%;      /* 親要素幅に合わせる */
+    max-width: 100%;  /* 親幅以上にならない */
+    height: auto;     /* 縦横比を維持 */
+    border: none;
+    border-radius: 20px;
+}
+
+.image-box main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding:  40px;
+    margin-top: 500px !important;
+    margin-bottom: 120px;
+}
+
+.image-wide {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/*画像コンテナと左右BOX*/
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/*メイン画像オーバレイ*/
+.overlay-text {
+    position: absolute;
+    top: -30px;
+    left: 340px;
+    transform: translateX(-20%);
+    color: #ff0;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/*縦線のスクロール*/
+.scrolldown {
+    /*描画位置*/
+  position: absolute;
+  bottom: 12%;          /* ← 重要：画像の内側 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  opacity: 0.8;
+  pointer-events: none; /* クリック邪魔しない */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+    /*描画位置*/
+    position: static;
+    left: 80%;
+    top: -40%;
+    transform: translateX(-50%);
+    /*テキストの形状*/
+    color: #ff0;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0.85; 
+}
+
+/*線の描写*/
+.scrolldown::after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    top: 0;
+    /*線の形状*/
+    width: 3px;
+    height: 30px;
+    background: #ff0;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+    animation: pathmove 1.4s ease-in-out infinite;
+    opacity: 0;
+    margin-top: 20px;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove {
+    0%{
+        height: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    30%{
+        height: 30px;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        top: 50px;
+        opacity: 0;
+    }
+}
+
+/*メイン画像*/
+.image-box:first-of-type {
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
 /*キャプション*/
 .caption-outside {
     color: #ffffff;
@@ -777,6 +794,60 @@ body {
     font-weight:bold ;
     text-align: center;
     margin: 80px 0 20px 0;
+}
+
+/*「AIビジネスとは何？」の画像上に文字を重ねる */
+.caption-overlay {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.5rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像1→今さらだけどAIとは？を広げる*/
+.image-box:nth-of-type(2) {
+    margin-bottom: 200px;
+}
+
+/*「今さらだけど…AIって結局何？」の画像上に文字を重ねる */
+.caption-overlay-2 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 20px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.5rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像2→どうやって使えばいいの？を広げる*/
+.image-box:nth-of-type(3) {
+    margin-bottom: 200px;
+}
+
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
+.caption-overlay-3 {
+  position: absolute;   /* 親要素（figure）内で絶対位置 */
+  top: 10px;            /* 上からの距離 */
+  left: 30px;           /* 左からの距離 */
+  color: #ffffff;       /* 白文字 */
+  font-size: 1.5rem;      /* 文字サイズ */
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.4); /* 半透明の背景（任意） */
+  padding: 5px 10px;    /* 文字周りの余白 */
+  border-radius: 5px;   /* 角丸（任意） */
+}
+
+/*画像3→どうやって使えばいいの？を広げる*/
+.image-box:nth-of-type(4) {
+    margin-bottom: 300px;
 }
 
 .steps-overlay {
