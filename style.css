@@ -1,3 +1,5 @@
+/*PCサイズ*/
+@media   (min-width:1024px) {
 body {
     margin: 0;
     background: linear-gradient(135deg, #1f1c2c, #928dab);
@@ -5,11 +7,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 /*画像ギャラリー*/
 .image-gallery {
-    max-width: 1200px;
+    max-width: 95%;
     margin: 0 auto;
     padding: 30px 40px 0;
     position: relative;
@@ -17,9 +21,9 @@ body {
 
 .main-outside-title {
     color: #fff;
-    font-size: 65px;
+    font-size: 50px;
     text-align: center;
-    margin-bottom: 0;
+    margin-top: 0;
 }
 
 /* PCではタイトル下BOXを消す */
@@ -50,8 +54,8 @@ body {
 /*左右のBOX*/
 .side-box {
     position: absolute;
-    width: 250px;
-    height: 100px;
+    width: 200px;
+    height: 80px;
     padding: 20px;
     background-color: #0b1f3a;
     border: 5px solid #cccccc;
@@ -67,43 +71,44 @@ body {
 
 /*左BOX*/
 .left-box {
-    left: -350px;
-    top: 30px;
+    position: absolute;
+    left: 5%;
+    top: 340px;
 }
 
 .left-box p {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 /*右BOX*/
 .right-box {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 0;
-    right: -350px;  /*位置調整*/
+    top: 340px;
+    right: 5%;  /*位置調整*/
 }
 
 .right-small {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 5px 0 15px 0;
 }
 
 .right-big {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 0 ;
 }
 
 /*画像ボックス*/
 .image-box {
-    position: relative;
-    width: 100%;
+    width: 95%;
     max-width: 500px;        /* 画像と白枠の最大幅を統一 */
-    padding: 20px;           /* 白枠の余白 */
+    padding: 10px;           /* 白枠の余白 */
     margin: 40px auto;       /* 上下の間隔 */
     border-radius: 20px;
     background-color: #fff;  /* ← これがないと白枠は消える */
@@ -112,7 +117,6 @@ body {
 .image-box img {
     display: block;
     width: 100%;      /* 親要素幅に合わせる */
-    max-width: 100%;  /* 親幅以上にならない */
     height: auto;     /* 縦横比を維持 */
     border: none;
     border-radius: 20px;
@@ -127,42 +131,40 @@ body {
     padding:  40px;
     margin-top: 500px !important;
     margin-bottom: 120px;
-    width: 100%;
+    width: 95%;
 }
 
 .image-wide {
-    width: 100%;
-    max-width: 750px;
+    width: 95%;
+    max-width: 900px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-/*画像コンテナと左右BOX*/
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.hero-wrapper {
     position: relative;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /*メイン画像オーバレイ*/
 .overlay-text {
     position: absolute;
-    top: -30px;
-    left: 430px;
+    top: 0;
+    left: 530px;
     transform: translateX(-40%);
     color: #ff0;
     font-size: 60px;
     font-weight: bold;
     z-index: 10;
+    margin: 10px;
 }
 
 /*縦線のスクロール*/
 .scrolldown {
     /*描画位置*/
   position: absolute;
-  bottom: 15px;          /* ← 重要：画像の内側 */
+  bottom: 20px;          /* ← 重要：画像の内側 */
   left: 53%;
   transform: translateX(-50%);
   text-align: center;
@@ -231,7 +233,7 @@ body {
 
 /*メイン画像*/
 .image-box:first-of-type {
-    margin-top: 80px;
+    margin-top: 20px;
     margin-bottom: 200px;
 }
 
@@ -241,7 +243,7 @@ body {
     font-size: 3rem;
     font-weight:bold ;
     text-align: center;
-    margin: 80px 0 20px 0;
+    margin: 40px 0 20px 0;
 }
 
 /*「AIビジネスとは？」の画像上に文字を重ねる */
@@ -280,6 +282,14 @@ body {
     margin-bottom: 200px;
 }
 
+.image-text-2 {
+    position: relative;
+}
+
+.image-text-3 {
+    position: relative;
+}
+
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-3 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
@@ -300,7 +310,7 @@ body {
 
 .steps-overlay {
     position: absolute;
-    top: 200px;
+    top: 350px;
     left: 30px;
     color: #ffffff;
     font-size: 2.7rem;
@@ -317,13 +327,12 @@ body {
 
 /*テーブル全体*/
 .seminar-info {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
     border: 7px solid #ffffff;
     display: table;
     margin: 50px auto;
     table-layout: auto;
-    min-width: 1200px;
     height: 600px;
 }
 
@@ -363,7 +372,7 @@ body {
 /*左列に対応する右列*/
 .seminar-info td:nth-child(2) {
     padding-left:40px ;
-    font-size: 40px;
+    font-size: 30px;
     background-color: #002766;
     color: #fff;
     text-align: center;
@@ -375,7 +384,7 @@ body {
     background-color: #003a8f;
     text-align: center;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 55px;
     border-top: 7px solid #ffffff;
     border-bottom: 7px solid #ffffff;
 }
@@ -387,9 +396,9 @@ body {
 
 /*左列(ヘッダー)だけ固定幅にする*/
 .seminar-info th:first-child {
-    width: 250px !important;
-    padding: 20px 10px;
-    font-size: 45px;
+    width: 200px !important;
+    padding: 10px 10px;
+    font-size: 35px;
     background-color: #1a1a2e;
     color: #fff;
     text-align: center;
@@ -417,7 +426,7 @@ body {
 .notice .emphasis {
     display: inline-block;
     position: relative;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .notice .emphasis::after {
@@ -426,7 +435,7 @@ body {
     left: 0;
     bottom: 15%;
     width: 100%;
-    height: 15px;
+    height: 10px;
     background: #fff000;
     z-index: -1;
 }
@@ -477,7 +486,7 @@ body {
 /* 入力欄 共通 */
 .name input,
 .email input {
-    width: 100%;
+    width: 90%;
     height: 60px;
     font-size: 40px;
     padding: 15px 20px;
@@ -508,7 +517,7 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0.25);
     border: none;
     line-height: 50px;
-    width: 1100px;
+    width: 900px;
     height: 300px;
 }
 
@@ -553,10 +562,10 @@ body {
     font-size: 95px;
     font-weight: bold;
 }
-
+}
 
 /*スマホ・タブレット対応*/
-@media screen and (max-width:768px) {
+@media   (min-width:768px) and (max-width:1023px) {
 body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -662,7 +671,7 @@ body {
 /*画像ボックス*/
 .image-box {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-width: 500px;        /* 画像と白枠の最大幅を統一 */
     padding: 20px;           /* 白枠の余白 */
     margin: 40px auto;       /* 上下の間隔 */
