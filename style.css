@@ -1,5 +1,5 @@
 /*PCサイズ*/
-@media   (min-width:1024px) {
+@media screen and (min-width:1024px) {
 body {
     margin: 0;
     background: linear-gradient(135deg, #1f1c2c, #928dab);
@@ -164,8 +164,8 @@ body {
 .scrolldown {
     /*描画位置*/
   position: absolute;
-  bottom: 20px;          /* ← 重要：画像の内側 */
-  left: 53%;
+  bottom: 10px;          /* ← 重要：画像の内側 */
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
   color: #000;
@@ -177,17 +177,16 @@ body {
   gap: 8px;
   z-index: 10;
   width: 40px; 
+  align-items: center;
 }
 
 /*Scrollテキストの描写*/
 .scrolldown span {
     /*描画位置*/
     position: static;
-    left: 50%;
     top: -40%;
-    transform: translateX(-50%);
     /*テキストの形状*/
-    color: #ff0;
+    color: #ffffff;
     font-size: 1.5rem;
     letter-spacing: 0.05em;
     opacity: 0.85; 
@@ -198,17 +197,14 @@ body {
 .scrolldown::after {
     content: "";
     /*描画位置*/
-    position: absolute;
-    top: 0;
-    left: 40%;
+    position: relative;
     /*線の形状*/
     width: 3px;
-    height: 30px;
-    background: #ff0;
+    height: 40px;
+    background: #ffffff;
     /*線の動き1.4秒かけて動く。永遠にループ*/
     animation: pathmove 1.4s ease-in-out infinite;
     opacity: 0;
-    margin-top: 25px;
 }
 
 /*高さ・位置・透過が変化して線が上から下に動く*/
@@ -338,8 +334,8 @@ body {
 
 .seminar-info th,
 .seminar-info td {
-    border-top: 7px solid #cccccc;
-    border-bottom: 7px solid #cccccc;
+    border-top: 7px solid #ffffff;
+    border-bottom: 7px solid #ffffff;
     padding: 20px 40px;
     font-size: 20px;
     text-align: center;
@@ -355,7 +351,7 @@ body {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    border-right: 7px solid #cccccc;
+    border-right: 7px solid #ffffff;
 }
 
 /*内容(td)用*/
@@ -366,7 +362,7 @@ body {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    border-left: 7px solid #cccccc;
+    border-left: 7px solid #ffffff;
 }
 
 /*左列に対応する右列*/
@@ -403,7 +399,7 @@ body {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    border-right: 7px solid #cccccc;
+    border-right: 7px solid #ffffff;
 }
 
 .notice {
@@ -440,58 +436,31 @@ body {
     z-index: -1;
 }
 
-/*名前入力欄*/
-.name {
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.1;
-}
-
-.name input {
-    font-size: 60px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-/*メール入力欄*/
-.email {
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.1;
-    margin-top: 100px;
-}
-
-.email input {
-    font-size: 60px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
 /* 共通ラッパー */
-.name,
-.email {
+.form-group {
     font-size: 40px;
-    text-align: left;
     max-width: 900px;
     margin: 40px auto;
     line-height: 1.3;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /* 入力欄 共通 */
-.name input,
-.email input {
+input[type="text"],
+input[type="email"] {
+    display: block;
     width: 90%;
     height: 60px;
-    font-size: 40px;
     padding: 15px 20px;
     border-radius: 20px;
-    margin-top: 5px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 25px;
+}
+
+.form-text {
+    margin-left: 5%;
 }
 
 /*ボタン*/
@@ -517,17 +486,17 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0.25);
     border: none;
     line-height: 50px;
-    width: 900px;
-    height: 300px;
+    width: 850px;
+    height: 350px;
 }
 
 /* クリック後 */
 .button-apply.is-active {
   background: #00a86b; /* 緑 */
-  font-size: 36pt;
+  font-size: 32pt;
   color: #fff;
-  width: 1000px;
-  height: 300px;
+  width: 850px;
+  height: 350px;
   margin: 0 auto 100px auto;  /* 下余白を残す */
   text-align: center;
   justify-content: center;     /* ボタン内で垂直中央 */
@@ -564,21 +533,22 @@ body {
 }
 }
 
-/*スマホ・タブレット対応*/
-@media   (min-width:768px) and (max-width:1023px) {
+/*タブレット対応*/
+@media screen and (min-width:769px) and (max-width:1023px) {
 body {
-    overflow-x: hidden;
-    overflow-y: auto;
+    margin: 0;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    padding-top: 15px;   /* ← ここだけでOK */
     display: flex;
     flex-direction: column;
-    align-items: center;  /* 横中央 */
-    margin: 0;
-    padding: 15px 0;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 /*画像ギャラリー*/
 .image-gallery {
-    max-width: 85%;
+    max-width: 95%;
     margin: 0 auto;
     padding: 30px 40px 0;
     position: relative;
@@ -586,19 +556,44 @@ body {
 
 .main-outside-title {
     color: #fff;
-    font-size: 33px;
+    font-size: 35px;
     text-align: center;
-    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* PCではタイトル下BOXを消す */
+@media screen and (min-width: 769px) {
+  .side-box-wrapper,
+   .mobile-only{
+    display: none !important;
+  }
+  .image-container .side-box {
+    display: flex;
+  }
+  .pc-only {
+    display: flex !important;
+  }
+  .side-box.left-box.pc-only,
+  .side-box.right-box.pc-only {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+   /* 共通PC用 */
+  .pc-only {
+    display: flex !important;
+  }
 }
 
 /*左右のBOX*/
 .side-box {
-    position: static;
-    width: 250px;
-    height: 100px;
-    padding: 0;
+    position: absolute;
+    width: 200px;
+    height: 70px;
+    padding: 18px;
     background-color: #0b1f3a;
-    border: 5px solid #cccccc;
+    border: 5px solid #a3a3a3;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -609,71 +604,46 @@ body {
     color: #ffd700;
 }
 
-/* タイトル直下の左右BOX */
-  .side-box-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0 30px;
-  }
-
-  .side-box-wrapper { display: flex; } 
-  .image-container .side-box { display: none; }
-  
-  .mobile-only { display: flex; }
-  .pc-only { display: none; }
-
-  /* スマホでは画像内の左右BOXを使わない */
-  .image-container .side-box {
-    display: none;
-  }
-  
-  .side-box.right-box.pc-only {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
 /*左BOX*/
 .left-box {
-    left: -350px;
-    top: 30px;
+    position: absolute;
+    left: 5%;
+    top: 300px;
 }
 
 .left-box p {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 /*右BOX*/
 .right-box {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 0;
-    right: -350px;  /*位置調整*/
+    top: 300px;
+    right: 5%;  /*位置調整*/
 }
 
 .right-small {
     font-size: 25px;
     font-weight: bold;
-    margin: 5px 0 15px 0;
+    margin: 5px 0 10px 0;
 }
 
 .right-big {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 0 ;
 }
 
 /*画像ボックス*/
 .image-box {
-    position: relative;
-    width: 90%;
+    width: 95%;
     max-width: 500px;        /* 画像と白枠の最大幅を統一 */
-    padding: 20px;           /* 白枠の余白 */
+    padding: 10px;           /* 白枠の余白 */
     margin: 40px auto;       /* 上下の間隔 */
     border-radius: 20px;
     background-color: #fff;  /* ← これがないと白枠は消える */
@@ -682,7 +652,6 @@ body {
 .image-box img {
     display: block;
     width: 100%;      /* 親要素幅に合わせる */
-    max-width: 100%;  /* 親幅以上にならない */
     height: auto;     /* 縦横比を維持 */
     border: none;
     border-radius: 20px;
@@ -697,41 +666,40 @@ body {
     padding:  40px;
     margin-top: 500px !important;
     margin-bottom: 120px;
+    width: 95%;
 }
 
 .image-wide {
-    width: 100%;
-    max-width: 750px;
+    width: 95%;
+    max-width: 900px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-/*画像コンテナと左右BOX*/
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.hero-wrapper {
     position: relative;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /*メイン画像オーバレイ*/
 .overlay-text {
     position: absolute;
-    top: -30px;
-    left: 340px;
-    transform: translateX(-20%);
+    top: 0;
+    left: 400px;
+    transform: translateX(-40%);
     color: #ff0;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     z-index: 10;
+    margin: 10px;
 }
 
 /*縦線のスクロール*/
 .scrolldown {
     /*描画位置*/
   position: absolute;
-  bottom: 18%;          /* ← 重要：画像の内側 */
+  bottom:60px;          /* ← 重要：画像の内側 */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -742,17 +710,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  z-index: 10;
+  width: 40px; 
+  align-items: center;
 }
 
 /*Scrollテキストの描写*/
 .scrolldown span {
     /*描画位置*/
     position: static;
-    left: 80%;
     top: -40%;
-    transform: translateX(-50%);
     /*テキストの形状*/
-    color: #ff0;
+    color: #ffffff;
     font-size: 1.5rem;
     letter-spacing: 0.05em;
     opacity: 0.85; 
@@ -763,16 +732,14 @@ body {
 .scrolldown::after {
     content: "";
     /*描画位置*/
-    position: absolute;
-    top: 0;
+    position: relative;
     /*線の形状*/
     width: 3px;
-    height: 30px;
-    background: #ff0;
+    height: 40px;
+    background: #ffffff;
     /*線の動き1.4秒かけて動く。永遠にループ*/
     animation: pathmove 1.4s ease-in-out infinite;
     opacity: 0;
-    margin-top: 25px;
 }
 
 /*高さ・位置・透過が変化して線が上から下に動く*/
@@ -797,20 +764,20 @@ body {
 
 /*メイン画像*/
 .image-box:first-of-type {
-    margin-top: 80px;
+    margin-top: 20px;
     margin-bottom: 200px;
 }
 
 /*キャプション*/
 .caption-outside {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight:bold ;
     text-align: center;
-    margin: 80px 0 20px 0;
+    margin: 40px 0 20px 0;
 }
 
-/*「AIビジネスとは何？」の画像上に文字を重ねる */
+/*「AIビジネスとは？」の画像上に文字を重ねる */
 .caption-overlay {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
   top: 20px;            /* 上からの距離 */
@@ -828,7 +795,7 @@ body {
     margin-bottom: 200px;
 }
 
-/*「今さらだけど…AIって結局何？」の画像上に文字を重ねる */
+/*「今さらだけどAIとは？」の画像上に文字を重ねる */
 .caption-overlay-2 {
   position: absolute;   /* 親要素（figure）内で絶対位置 */
   top: 20px;            /* 上からの距離 */
@@ -844,6 +811,14 @@ body {
 /*画像2→どうやって使えばいいの？を広げる*/
 .image-box:nth-of-type(3) {
     margin-bottom: 200px;
+}
+
+.image-text-2 {
+    position: relative;
+}
+
+.image-text-3 {
+    position: relative;
 }
 
 /*「今さらだけどAIとは？」の画像上に文字を重ねる */
@@ -866,8 +841,8 @@ body {
 
 .steps-overlay {
     position: absolute;
-    top: 200px;
-    left: 30px;
+    top: 250px;
+    left: 50px;
     color: #ffffff;
     font-size: 2rem;
     background-color: rgba(50, 50, 50, 0.5);
@@ -889,14 +864,13 @@ body {
     display: table;
     margin: 50px auto;
     table-layout: auto;
-    min-width: unset;
-    height: 400px;
+    height: 550px;
 }
 
 .seminar-info th,
 .seminar-info td {
-    border-top: 7px solid #cccccc;
-    border-bottom: 7px solid #cccccc;
+    border-top: 7px solid #ffffff;
+    border-bottom: 7px solid #ffffff;
     padding: 20px 40px;
     font-size: 20px;
     text-align: center;
@@ -912,7 +886,7 @@ body {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    border-right: 7px solid #cccccc;
+    border-right: 7px solid #ffffff;
 }
 
 /*内容(td)用*/
@@ -923,15 +897,15 @@ body {
     color: #fff;
     text-align: center;
     font-weight: bold;
-    border-left: 7px solid #cccccc;
+    border-left: 7px solid #ffffff;
 }
 
 /*左列に対応する右列*/
 .seminar-info td:nth-child(2) {
     padding-left:40px ;
-    font-size: 20px;
+    font-size: 25px;
     background-color: #002766;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     font-weight: bold;
     width: auto;
@@ -941,7 +915,7 @@ body {
     background-color: #003a8f;
     text-align: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 42px;
     border-top: 7px solid #ffffff;
     border-bottom: 7px solid #ffffff;
 }
@@ -953,14 +927,14 @@ body {
 
 /*左列(ヘッダー)だけ固定幅にする*/
 .seminar-info th:first-child {
-    width: 150px !important;
-    padding: 20px 10px;
-    font-size: 25px;
+    width: 110px !important;
+    padding: 10px 10px;
+    font-size: 22px;
     background-color: #1a1a2e;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     font-weight: bold;
-    border-right: 7px solid #cccccc;
+    border-right: 7px solid #ffffff;
 }
 
 .notice {
@@ -977,14 +951,13 @@ body {
     display: block;
     margin-top: 50px;
     margin-bottom: 20px ;
-    font-size: 28px;
+    font-size: 40px;
 }
 
 .notice .emphasis {
     display: inline-block;
     position: relative;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 30px;
 }
 
 .notice .emphasis::after {
@@ -998,58 +971,31 @@ body {
     z-index: -1;
 }
 
-/*名前入力欄*/
-.name {
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.1;
-}
-
-.name input {
-    font-size: 60px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-/*メール入力欄*/
-.email {
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.1;
-    margin-top: 100px;
-}
-
-.email input {
-    font-size: 60px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
 /* 共通ラッパー */
-.name,
-.email {
+.form-group {
     font-size: 35px;
-    text-align: left;
     max-width: 900px;
     margin: 40px auto;
     line-height: 1.3;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /* 入力欄 共通 */
-.name input,
-.email input {
-    width: 100%;
+input[type="text"],
+input[type="email"] {
+    display: block;
+    width: 90%;
     height: 60px;
-    font-size: 40px;
     padding: 15px 20px;
     border-radius: 20px;
-    margin-top: 5px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 20px;
+}
+
+.form-text {
+    margin-left: 5%;
 }
 
 /*ボタン*/
@@ -1059,20 +1005,43 @@ body {
 }
 
 .button-apply {
-    display: block;
+    flex-direction: column;      /* 2行を縦に積む */
+    justify-content: center;     /* ボタン内で垂直中央 */
+    align-items: center;  
+    display: flex;
     background: linear-gradient(90deg, #fcd34d, #fbbf24);
     color: #1e3c72;
+    font-size: 32px;
     text-align: center;
     border-radius: 20px;
-    padding: 30px 30px;
+    padding: 0;
     cursor: pointer;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     box-shadow: 0 6px 15px rgba(0, 0, 0.25);
     border: none;
-    line-height: 30px;
-    width: 95%;
-    margin-bottom: 100px;
+    line-height: 50px;
+    width: 660px;
+    height: 300px;
+}
+
+/* クリック後 */
+.button-apply.is-active {
+  background: #00a86b; /* 緑 */
+  font-size: 30pt;
+  color: #fff;
+  width: 650px;
+  height: 280px;
+  margin: 0 auto 100px auto;  /* 下余白を残す */
+  text-align: center;
+  justify-content: center;     /* ボタン内で垂直中央 */
+  align-items: center;
+}
+
+/* 子要素の余白をリセット */
+.button-sub,
+.button-main {
+    margin: 0;
 }
 
 .button-apply:hover {
@@ -1087,14 +1056,14 @@ body {
 
 .button-sub {
     display: block;
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
 }
 
 .button-main {
     display: block;
-    font-size: 70px;
+    font-size: 75px;
     font-weight: bold;
 }
 
